@@ -8,7 +8,7 @@ let users = {}
 
 async function getItems() {
     if(searchInput.value) {
-        const response = await fetch(`https://api.github.com/search/repositories?q=${searchInput.value}&per_page=${USER_PER_PAGE}`);
+        const response = await fetch(`https://api.github.com/search/repositories?q=${searchInput.value}+in:name+&per_page=${USER_PER_PAGE}`);
         const data = await response.json();
         searchOptions.innerHTML = '';
         data.items.forEach((item, i) => {
